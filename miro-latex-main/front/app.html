@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/assets/style.css" />
+    <script defer src="https://miro.com/app/static/sdk/v2/miro.js"></script>
+    <script>
+      MathJax = {loader: {load:['ui/safe', 'input/tex', 'output/svg']},
+		 startup: {typeset:false},
+		 //options: {enableMenu: false}
+		};
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js"></script>
+    <script defer src="https://unpkg.com/mathlive"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="editor">
+	<div class="form-group">
+	  <div class="hidden mathlive">
+	    <div class="grid">
+	      <label class="cs1 ce6" for="mathlive">MathLive Editor</label>
+	      <label class="cs7 ce12 toggle align-right" for="virtkbd">
+		<input type="checkbox" id="virtkbd" name="virtkbd" tabindex="0"/>
+		<span></span> Keyboard
+	      </label>
+	    </div>
+	    <math-field name="mathlive" id="mathlive"
+			virtual-keyboards="functions symbols greek"
+			virtual-keyobard-theme="material"></math-field>
+	  </div>
+	  <div class="mathjax">
+	    <label for="texinput">Enter LaTeX</label>
+            <textarea id="texinput" class="textarea"
+		      spellcheck="false"
+		      placeholder="\int_0^1 \frac12 x^2\, dx"></textarea>
+	  </div>
+	  <button type="button" id="place-button"
+		  class="button button-small button-primary">
+	    Place At Center
+	  </button>
+	  Or drag and drop image below to canvas.
+	</div>
+	<div class="miro-draggable" id="texoutput">
+	  \[f(x)=\frac12\sin(x^3)\]
+	</div>
+      </div>
+      <footer>
+        <div class="grid p-medium">
+          <label class="toggle cs1 ce6">
+            LaTeX
+            <input type="checkbox" id="mathlive-toggle"
+                   name="mathlive-toggle" tabindex="0"/>
+            <span></span> MathLive
+	  </label>
+	  <div class="cs7 ce12 powered-by align-right">
+	    Powered by MathJax
+	  </div>
+	</div>
+      </footer>
+    </div>
+    <script type="module" src="/src/app.js"></script>
+  </body>
+</html>
